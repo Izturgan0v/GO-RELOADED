@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"go-reloaded/processor"
 )
@@ -16,6 +17,10 @@ func main() {
 	}
 
 	inputFile, outputFile := os.Args[1], os.Args[2]
+
+	if !strings.HasSuffix(inputFile, ".txt") || !strings.HasSuffix(outputFile, ".txt") {
+		fmt.Println("Ошибка: оба файла должны иметь расширение .txt")
+	}
 
 	// Открытие входного файла
 	input, err := os.Open(inputFile)
