@@ -25,14 +25,14 @@ func main() {
 	// Открытие входного файла
 	input, err := os.Open(inputFile)
 	if err != nil {
-		log.Fatalf("Failed to open input file: %v", err)
+		log.Fatalf("Не удалось открыть входной файл: %v", err)
 	}
 	defer input.Close()
 
 	// Создание выходного файла
 	output, err := os.Create(outputFile)
 	if err != nil {
-		log.Fatalf("Failed to create output file: %v", err)
+		log.Fatalf("Не удалось создать выходной файл: %v", err)
 	}
 	defer output.Close()
 
@@ -51,11 +51,11 @@ func main() {
 	for i, line := range lines {
 		if i < len(lines)-1 {
 			if _, err := output.WriteString(line + "\n"); err != nil {
-				log.Fatalf("Error writing to output file: %v", err)
+				log.Fatalf("Ошибка при записи в выходной файл: %v", err)
 			}
 		} else {
 			if _, err := output.WriteString(line); err != nil {
-				log.Fatalf("Error writing to output file: %v", err)
+				log.Fatalf("Ошибка при записи в выходной файл: %v", err)
 			}
 		}
 	}
